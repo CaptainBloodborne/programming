@@ -10,5 +10,6 @@ int main() {
     }
 
     std::cout << x + y << "\n";
+    return 0
 
 }
