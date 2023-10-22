@@ -1,34 +1,29 @@
 #include <iostream>
-#include <ostream>
 
 int main() {
 
-    int n (-17); // стиль c++
+    int n (-17); // стиль C++
 
-    bool negative = false;
-
-    if (n & 0200) {
-        negative = true;
-    }
-
-    int m = 0377; // стиль
+    int m = 0377; // стиль C
 
     n = n & m;
+    std::cout << n << std::endl;
 
-    std::cout << n << "\n";
-
-    m = 0125; // 0252
+    m = 0125; /*
+    m = 0125 - восьмеричная маска для инвертирования четных битов
+    m = 0252 - восьмеричная маска для инвертирования нечетных битов
+    */
 
     n = n ^ m;
-    std::cout << n << "\n";
+    // std::cout << n << std::endl;
     
-    if (negative) {
+    if (n & 0200) {
         m = 037777777400;
 
         n = n ^ m;
     }
 
-    std::cout << n << "\n";
+    std::cout << "Результат: " << n << std::endl;
 
     return 0;
 }
