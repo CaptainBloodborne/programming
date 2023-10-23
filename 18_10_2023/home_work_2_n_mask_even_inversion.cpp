@@ -1,6 +1,8 @@
 #include <iostream>
 
-int main() {
+int main() 
+{
+    using namespace std;
 
     int n (17);
 
@@ -12,13 +14,14 @@ int main() {
 
     n = n ^ m;
     
-    if (n & 0200) {
+    if (n & 0200) 
+    {
         m = 037777777400;
 
         n = n ^ m;
     }
 
-    std::cout << n << std::endl;
+    cout << n << endl;
 
     return 0;
 }
