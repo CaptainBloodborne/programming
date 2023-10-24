@@ -4,7 +4,7 @@ int main()
 {
     using namespace std;
 
-    int n (17);
+    int n (9999);
 
     int m (0377);
 
