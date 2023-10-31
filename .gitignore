@@ -1,5 +1,5 @@
-*/a.out
-*/.idea
-*/.vscode
-*/.cache
-*/build
+/a.out
+/.idea
+/.vscode
+/.cache
+/build
