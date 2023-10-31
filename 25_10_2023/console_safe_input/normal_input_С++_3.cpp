@@ -15,7 +15,7 @@ int main()
 		cout << "Number [-128, 127]? ";
 		cin >> n;
 		if (cin.fail()) cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cin.ignore(3, '\n');
 	}
 	while (!(n >= -128 && n <= 127));
 	cout << n << endl;

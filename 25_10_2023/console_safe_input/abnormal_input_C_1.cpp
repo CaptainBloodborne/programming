@@ -12,7 +12,7 @@ int main()
 	{
 		printf("Number [-128, 127]? ");
 		scanf("%d", &n);
-	}
+ 	}
 	while (!(n >= -128 && n <= 127));
 	printf("%d\n", n);
 
