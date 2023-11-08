@@ -2,8 +2,9 @@
 #include <iostream>
 #include <limits>
 
-int main() 
+int main()
 {
+    setlocale(LC_ALL, ".UTF8");
     using namespace std;
     
     int n(0);
@@ -37,7 +38,7 @@ int main()
     }
     
     cout  << "Исходное число: " << n << endl;
-    cout << "Двоичный дамп: " << bitset<8>(n) << endl;
+    cout << "Двоичный дамп: " << bitset<64>(n) << endl;
 
     cout << "Переход к  8-разрядному  двоичному полю..." << endl;
     n &= 0377;
@@ -82,7 +83,7 @@ int main()
 
     n = n ^ inversion_mask;
 
-    if ((inversion_mask == 0125) && (n & 0200))
+    if ((n & 0200))
     {
         n = n ^ 037777777400;
     }
