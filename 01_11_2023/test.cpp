@@ -1,6 +1,7 @@
 #include <iostream>
 #include <bitset>
 #include <typeinfo>
+#include <cstdio>
 
 int main()
 {
