@@ -39,7 +39,7 @@ int main()
             cin.clear();
             cerr << "Ошибка ввода: неверный формат! ";
             continue;
-        } else if (!(n >= 1 && n <= INT_MAX))
+        } else if (!(n >= 11 && n <= INT_MAX))
         {
             cerr << "Ошибка ввода: выход за границу диапазона! ";
         } else break;
