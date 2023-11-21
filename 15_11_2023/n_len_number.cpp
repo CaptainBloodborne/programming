@@ -77,7 +77,7 @@ int main()
 
     int len_numeric_limits_int_max_last_digit(numeric_limits<int>::max() / IntPow(10, n_len - 1));
 
-    if (n_len == 10 && last_digit > len_numeric_limits_int_max_last_digit)
+    if (n_len == len_numeric_limits_int_max && last_digit > len_numeric_limits_int_max_last_digit)
     {
         cout << "Error: Result of swapping is out possible range! Exiting..." << endl;
         return -1;
