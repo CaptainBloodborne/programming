@@ -7,23 +7,23 @@ begin
     if i == 3
     then
         print" Превышено число попыток ввода! Завершение программы..."
-        exit
+        end
     input n
 
     if n not number
     then
-        print "Ошибка ввода: неверный формат! "
+        print "Input error: Wrong format! "
     else 
         if n <= 11 or n >= 4294967295 ?????????
         then
-            print "Ошибка ввода: выход за границу диапазона! "
+            print "Input error: Range limits excedeed! "
         else
             break
     
   if n mod 10 == 0
   then
-      print "Младший разряд равен 0! Невозможно выполнить перестановку крайних цифр!"
-      exit
+      print "Least significant digit equals 0! Impossible to swap extreme digits!"
+      end
 
   n_order = 0
 
@@ -34,6 +34,11 @@ begin
   n_reversed = 0
 
   n_reversed = n_reversed + power(10, n_order - 1) * n mod 10
+
+  if not n <= 11
+  then
+      print ""Error: Result of swapping is out range!""
+      end
 
   n = n div 10
 
@@ -49,11 +54,6 @@ begin
    n_reversed = n_reversed + n mod power(10, n_order - 1) * power(10, n_order)
    n = n mod 10^n_order - 1
    n_order = n_order - 1
-
-  if n_reversed < 1 or n_reversed > 4294967295
-  then
-      print "Ошибка ввода: выход за границу диапазона! "
-      exit
 
   print n_reversed
 

@@ -1,3 +1,4 @@
+#include <climits>
 #include <iostream>
 #include <cmath>
 
@@ -29,9 +30,26 @@ int main()
 
     std::cin >> n;
 
+    if (std::cin.fail())
+    {
+        std::cout << "n: " << n << std::endl;
+        std::cin.clear();
+        std::cout << "n: " << n << std::endl;
+
+        for (char c(0); c != '\n'; c = std::cin.get())
+        {
+            std::cout << "c for: " << int(c) << std::endl;
+        }
+    }
+
     // int m(020000000000);
 
     // std::cout << (n & m) << std::endl;
+
+    if (n >= INT_MAX) 
+    {
+        std::cout << "n больше или равно int_max" << std::endl;
+    }
 
     std::cout << n + 50 << std::endl;
     // std::cout << IntPow(10, 4) << std::endl;
