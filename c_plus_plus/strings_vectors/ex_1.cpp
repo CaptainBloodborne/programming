@@ -5,11 +5,11 @@
 #include <string>
 
 int main() {
-    std::string result
+    std::string result;
 
     std::string password;
 
-    std::getline(std::cin, password)
+    std::getline(std::cin, password);
 
     if (password.size() >= 8 || password.size() <= 14) {
         result = "YES";
