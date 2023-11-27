@@ -4,10 +4,34 @@
 
 using namespace std;
 
+int IntPow(int b, int p)
+{
+    if (p == 0) return 1;
+
+    if (p == 1) return b;
+
+    int n(b);
+    do 
+    {
+        n *= b;
+        --p;
+    }
+    
+    while (p > 1);
+
+    return n;
+}
+
 void print(char* pointer, int n)
 {
-	for (;n >= 0; --n)
-		cout << pointer[n];
+    do 
+    {
+        cout << pointer[n];
+        --n;
+    } 
+    while (n >= 0);
+
+    cout << endl;
 }
 
 void BinaryDump(char* pointer, int n)
@@ -16,11 +40,58 @@ void BinaryDump(char* pointer, int n)
 
     pointer[31] = (n < 0 ? '1' : '0');
 
-	for (int i = 0; i < 31; ++i, mask >>= 1)
+	for (int i(0); i < 31; ++i, mask >>= 1)
     {
         pointer[30 - i] = (n & mask ? '1' : '0');
     }
 
+}
+
+int BinaryDumpRestore(char* pointer)
+{
+    int n = (0);
+
+	for (int i(0); i < 31; ++i)
+    {
+        n += (int(pointer[i]) - 48) * IntPow(2, i);
+    }
+
+    return pointer[31] == '1' ? numeric_limits<int>::min() + n : n;
+
+}
+
+void OctalDump(char* pointer, int n)
+{
+	int mask(07000000000);
+
+    pointer[10] = char(((n >> 30) & 03) + 48);
+	for (int i = 0; i < 10; ++i, mask >>= 3)
+    {
+        pointer[9 - i] = char(((n & mask) >> 27 - i * 3) + 48);
+    }
+    
+}
+
+int OctalDumpRestore(char* pointer)
+{
+    int n(0);
+
+	for (int i(0); i < 10; ++i)
+    {
+        n += (int(pointer[i]) - 48) << (i * 3);
+    }
+
+    cout << dec;
+
+    if (pointer[10] != '0')
+    {
+        int mask(07777777777);
+
+        return ~((n & mask) ^ mask);
+    } else
+    {
+        return n;
+    }
 }
 
 void HexadecimalDump(char* pointer, int n)
@@ -36,15 +107,28 @@ void HexadecimalDump(char* pointer, int n)
 	}
 }
 
-void OctalDump(char* pointer, int n)
+int HexadecimalDumpRestore(char* pointer)
 {
-	int mask(07000000000);
+    int n(0);
 
-    pointer[10] = char(((n >> 30) & 03) + 48);
-	for (int i = 0; i < 10; ++i, mask >>= 3)
+	for (int i(0); i < 7; ++i)
     {
-        pointer[9 - i] = char(((n & mask) >> 27 - i * 3) + 48);
+        int digit(static_cast<int>(pointer[i]));
+        n += (digit > 57 ? digit - 87 : digit - 48) * IntPow(16, i);
     }
+
+    cout << dec;
+
+    if (pointer[7] != '0')
+    {
+        int mask(0xfffffff);
+
+        return ~((n & mask) ^ mask);
+    } else
+    {
+        return n;
+    }
+
 }
 
 int main(){
@@ -55,7 +139,7 @@ int main(){
 
     char octal_dump[11];
 
-    char hexadeciaml_dump[8];
+    char hexadecimal_dump[8];
     
     for (int i(0); i <= 3; ++i)
     {
@@ -77,29 +161,31 @@ int main(){
         } else break;
     }
 
+    cout << "Source data: " << n << endl;
+
     cout << endl;
 
     BinaryDump(binary_dump, n);
+    cout << "Binary dump (user function and array): ";
     print(binary_dump, 31);
-
-    cout << endl;
-	cout << bitset<32>(n) << endl;
+	cout << "Binary dump (bitset): "<< bitset<32>(n) << endl;
+    cout << "Restoring number from binary dump: " << BinaryDumpRestore(binary_dump) << endl;
 
     cout << endl;
 
     OctalDump(octal_dump, n);
+    cout << "Octal dump (user function and array): ";
     print(octal_dump, 10);
+    cout << "Octal dump (oct manipulator): " << oct << n << endl;
+    cout << "Restoring number from octal dump: " << OctalDumpRestore(octal_dump) << endl;
 
     cout << endl;
-    cout << oct << n << endl;
 
-    cout << endl;
-
-    HexadecimalDump(hexadeciaml_dump, n);
-    print(hexadeciaml_dump, 7);
-
-    cout << endl;
-    cout << hex << n << endl;
+    HexadecimalDump(hexadecimal_dump, n);
+    cout << "Hexadecimal dump (user function and array): ";
+    print(hexadecimal_dump, 7);
+    cout << "Hexadecimal dump (hex manipulator): " << hex << n << endl;
+    cout << "Restoring number from hexadecimal dump: " << HexadecimalDumpRestore(hexadecimal_dump) << endl;
 
     return 0;
 }

@@ -8,13 +8,21 @@ int main()
 	using namespace std;
 
 	// int x(180);
+
+	int n(((13 >> 30) & 03) + 48);
+	cout << n << endl;
+
+	int mask(07777777777);
+	int n1(1073741811);
+	// cout << oct;
+	cout << ~(((n1 & mask) ^ mask)) << endl;
+
 	int x2(856);
 	char x3 (127);
 	char x4(1);
 	char x;
 	int y(0xff7);
 
-	char z;
 	cout << "Input: " << int(char(y)) << endl;
 	// char x3(0xc4);
 	// char x4(0x6d);
