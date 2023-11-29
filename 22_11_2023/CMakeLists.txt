@@ -4,7 +4,7 @@ project(dump VERSION 0.1.0 LANGUAGES C CXX)
 include(CTest)
 enable_testing()
 
-add_executable(dump main.cpp)
+add_executable(dump dump.cpp)
 add_executable(binary_dump BinaryDump.cpp)
 add_executable(hexa_dump HexadecimalDump.cpp)
 add_executable(octal_dump OctalDump.cpp)

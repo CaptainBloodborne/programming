@@ -87,7 +87,7 @@ int OctalDumpRestore(char* pointer)
     {
         int mask(07777777777);
 
-        return ~((n & mask) ^ mask);
+        return ~(n ^ mask);
     } else
     {
         return n;
@@ -123,7 +123,7 @@ int HexadecimalDumpRestore(char* pointer)
     {
         int mask(0xfffffff);
 
-        return ~((n & mask) ^ mask);
+        return ~(n ^ mask);
     } else
     {
         return n;
