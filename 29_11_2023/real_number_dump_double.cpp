@@ -69,7 +69,7 @@ int main()
         } else break;
     }
 
-    cout << fixed << "Source data: " << n << endl;
+    cout << scientific << "Source data: " << n << endl;
     cout << endl;
 
     double* pDouble = &n;
