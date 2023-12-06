@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -7,10 +8,10 @@ int main()
 	union
 	{
 		float d;
-		short int a[8];
+		char a[32];
 	};
 	d = 122.64563;
 
-	cout << a[4] << endl;
+	cout << a[10] << endl;
 	return 0;
 }
