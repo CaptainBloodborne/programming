@@ -6,13 +6,11 @@ int main()
 {
 	union
 	{
-		float f;
-		int a[1];
+		float d;
+		short int a[8];
 	};
-	f = 122.0;
+	d = 122.64563;
 
-    cout << a[2] << endl;
-	cout << endl;
-
+	cout << a[4] << endl;
 	return 0;
 }
