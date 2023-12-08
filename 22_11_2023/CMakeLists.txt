@@ -5,6 +5,7 @@ include(CTest)
 enable_testing()
 
 add_executable(dump dump.cpp)
+add_executable(dump_new dump_new.cpp)
 add_executable(binary_dump BinaryDump.cpp)
 add_executable(hexa_dump HexadecimalDump.cpp)
 add_executable(octal_dump OctalDump.cpp)
