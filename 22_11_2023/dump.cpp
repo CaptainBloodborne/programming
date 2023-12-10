@@ -1,5 +1,6 @@
 #include <iostream>
 #include <bitset>
+#include <iterator>
 #include <limits>
 
 using namespace std;
@@ -76,7 +77,7 @@ int OctalDumpRestore(char* pointer)
 {
     int n(0);
 
-	for (int i(0); i < 10; ++i)
+	for (int i(0); i < 11; ++i)
     {
         n += (int(pointer[i]) - 48) << (i * 3);
     }
@@ -85,7 +86,7 @@ int OctalDumpRestore(char* pointer)
 
     if (pointer[10] != '0')
     {
-        int mask(07777777777);
+        int mask(037777777777);
 
         return ~(n ^ mask);
     } else
@@ -111,7 +112,7 @@ int HexadecimalDumpRestore(char* pointer)
 {
     int n(0);
 
-	for (int i(0); i < 7; ++i)
+	for (int i(0); i < 8; ++i)
     {
         int digit(static_cast<int>(pointer[i]));
         n += (digit > 57 ? digit - 87 : digit - 48) * IntPow(16, i);
@@ -119,9 +120,9 @@ int HexadecimalDumpRestore(char* pointer)
 
     cout << dec;
 
-    if (pointer[7] != '0')
+    if (pointer[7] > '7')
     {
-        int mask(0xfffffff);
+        int mask(0xffffffff);
 
         return ~(n ^ mask);
     } else
