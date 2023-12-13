@@ -4,9 +4,7 @@ int main() {
 
     int sum = 0;
 
-    int user_num;
-
-    std::cin >> user_num;  
+    int user_num(0);
 
     while (user_num != 0) {
         sum += user_num;

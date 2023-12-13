@@ -34,20 +34,6 @@ void print(char* pointer, int n)
     cout << endl;
 }
 
-template<typename T>
-void BinaryDump(char* pointer, T n)
-{
-
-    switch (T::name)
-    {
-        case "int":
-            cout << "abc" << endl;
-            break;
-
-    }
-}
-
-
 void BinaryDump(char* pointer, int n)
 {
     int mask(010000000000);
