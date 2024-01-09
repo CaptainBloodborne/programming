@@ -72,7 +72,6 @@ void RCycleShift(int* pointer, int n_len)
     pointer[0] = last_digit;
 }
 
-
 int main(){
 
     int n(0);
@@ -81,29 +80,37 @@ int main(){
 
     if (input_status == -1) return -1;
 
-    if (n < 0) n *= -1;
-
     int n_len(0);
 
-    for (int n_temp(n); n_temp != 0;n_temp = n_temp / 10) // Определяем количество цифр в числе
+    for (int n_temp(n); n_temp != 0; n_temp /= 10)
     {
         ++n_len;
     }
 
-    int* arr_p(new int[n_len]);
-
-    for(int n_temp(n), n_len_temp(n_len); n_temp != 0; n_temp %= IntPow(10, n_len_temp - 1), --n_len_temp)
+    if (n_len < 2)
     {
-        arr_p[n_len - n_len_temp] = n_temp / IntPow(10, n_len_temp - 1);
+        cout << "The length of input number is less than 2: the array won't be changed after cycle shifting! Exiting..." << endl;
+        return -1;
+    }
+
+    int* number_array(new int[n_len]);
+
+    for(int n_len_temp(n_len); n != 0;--n_len_temp)
+    {
+        int digit(n / IntPow(10, n_len_temp - 1));
+        number_array[n_len - n_len_temp] = digit > 0 ? digit : digit * -1;
+        n %= IntPow(10, n_len_temp - 1);
     }
 
     cout << "array before shifting:" << endl;
-    print(arr_p, n_len);
+    print(number_array, n_len);
 
-    RCycleShift(arr_p, n_len);
+    RCycleShift(number_array, n_len);
 
     cout << "array after shifting:" << endl;
-    print(arr_p, n_len);
+    print(number_array, n_len);
+
+    delete[](number_array);
 
     return 0;
 }

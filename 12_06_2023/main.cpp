@@ -148,7 +148,7 @@ int HexadecimalDumpRestore(char* pointer)
     }
 }
 
-int main(){
+int main(int){
 
     int n(0);
 

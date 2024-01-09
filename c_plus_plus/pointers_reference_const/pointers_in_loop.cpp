@@ -27,11 +27,18 @@ int main() {
 
     size_t sum = 0;
 
-    for (const auto& row : v) {
+    // for (const auto& row : v) {
 
-        sum += row.size();
+    //     sum += row.size();
 
-    }
+    // }
+    for (size_t i = 0; i != v.size(); ++i) {
+
+    std::string* row = &v[i];  // здесь создаётся копия!
+
+    sum += row->size();
+
+}
 
     std::cout << sum << "\n";
 
