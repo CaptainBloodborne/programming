@@ -1,6 +1,6 @@
 **/a.out
-/.idea/
-/.vscode/
-/.cache/
-/build/
-/cmake-build-debug/
+**/.idea
+**/.vscode
+**/.cache
+**/build/
+**/cmake-build-debug/
