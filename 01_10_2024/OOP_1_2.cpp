@@ -5,7 +5,9 @@ class Double
 	public:
 	double number;
 
-	Double(double d = 0.0) : number(d) {}
+	Double(double d = 0.0) {
+		number = 2.0;
+	}
 	Double add(Double, Double);
 };
 
