@@ -10,6 +10,7 @@ int main()
 {
 	using namespace std;
 
+	// Копирование по умолчанию
 	Double a;
 	a.number = 1.2;
 	cout << "a = " << a.number << endl;				// 1.2

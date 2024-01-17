@@ -7,9 +7,9 @@ class Double
 	double number;
 
 	public:
-	Double(double d = 0.0) : number(d) {}
-	Double add(Double, Double);
-	friend ostream& operator<<(ostream&, Double);
+	Double(double d = 0.0) : number(d) {} // конструктор по умолчанию, ":" number(d) - инициализация, Double(double d = 0.0) - сигнатура инициадизатора
+	Double add(Double, Double); // операция сложения
+	friend ostream& operator<<(ostream&, Double); // дружественная ф-я
 };
 
 Double Double::add(Double a, Double b)
@@ -19,7 +19,7 @@ Double Double::add(Double a, Double b)
 	return temporary;
 }
 
-ostream& operator<<(ostream& stream, Double d)
+ostream& operator<<(ostream& stream, Double d) // операция визуализации
 {
 	return stream << d.number;
 }

@@ -10,7 +10,11 @@ int main()
 {
 	using namespace std;
 
-	Double a, b;
+	Double a, b; // компилятор сгенерировал конструктор по умолчанию
+	// Double () 
+	// {
+
+	//}
 	a.number = 1.2;
 	b.number = 2.3;
 	cout << "a = " << a.number << endl;					// 1.2
