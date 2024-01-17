@@ -13,7 +13,7 @@ class Double
 Double& Double::operator=(const Double& object)
 {
 	cout << "It's my copy assignment operator" << endl;
-	if (this != &object) number = object.number;
+	if (this != &object) number = object.number; // this - скрытый указатель объекта, неявно передается в фукнцию-член класса 
 	return *this;
 }
 

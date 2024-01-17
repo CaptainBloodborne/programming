@@ -7,7 +7,7 @@ class Double
 	double number;
 
 	public:
-	Double(double d = 0.0) : number(d) {}
+	Double(double d = 0.0) : number(d) {} // конструктор по умолчанию
 	Double add(Double, Double);
 	void print(Double);
 };

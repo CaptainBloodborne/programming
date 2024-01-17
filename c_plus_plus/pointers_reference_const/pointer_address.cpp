@@ -1,5 +1,10 @@
 #include <iostream>
 
+struct Point {
+    int x;
+    int y;
+    int z;
+};
  
 
 int main() {
@@ -15,6 +20,14 @@ int main() {
     cout << &z << endl;
 
     cout << sizeof(int) << endl;
+
+    int* pointer;
+
+    cout << pointer << endl;
+
+    Point* Ppointer;
+
+    cout << Ppointer << endl;
 
     return 0;
 
