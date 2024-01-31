@@ -12,7 +12,7 @@ class Integer
 	}
 	Integer(const Integer& object) : number(object.number)
 	{
-		cout << "This is: "<< this << " It's my copy constructor - " << &object<< endl;
+		cout << "This is: "<< this << " = " << *this <<" It's my copy constructor - " << &object << " = " << object << endl;
 	}
 	Integer& operator=(const Integer&);
 	Integer operator+(Integer);
@@ -29,13 +29,17 @@ Integer& Integer::operator=(const Integer& object)
 
 Integer Integer::operator+(Integer n)
 {
+	cout << "Adding " << this << " with " << &n << " = " << n << endl;
 	Integer temporary(*this);
+	cout << "After temp init " <<  &temporary << endl;
 	temporary.number += n.number;
+	cout << "After +=" << endl;
 	return temporary;
 }
 
 Integer& Integer::operator+=(Integer n)
 {
+	cout << "call += for " << &n << endl;
 	number += n.number;
 	return *this;
 }
@@ -57,18 +61,22 @@ ostream& operator<<(ostream& stream, const Integer& n)
 int main()
 {
 	Integer a(1), b(2), c, d(a + b);
+	cout << "d address - " << &d << endl;
+
+    cout << a + b << endl;
+
 	cout << "a = " << a << endl;	// 1
 	cout << "b = " << b << endl;	// 2
 	cout << "c = " << c << endl;	// 0
-	cout << "d = " << d << endl;	// 3
+	// cout << "d = " << d << endl;	// 3
 	cin >> c;
 	cout << "c = " << c << endl;
 	cout << "a + c = " << a + c << endl;
-	b = c + d;
+	// b = c + d;
 	cout << "b = " << b << endl;
-	d += c;
-	cout << "d = " << d << endl;
-	c = d;
+	// d += c;
+	// cout << "d = " << d << endl;
+	// c = d;
 	cout << "c = " << c << endl;
 	c = b + 1;
 	cout << "c = " << c << endl;
