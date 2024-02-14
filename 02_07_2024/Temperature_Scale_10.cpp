@@ -49,7 +49,6 @@ class C : public F, public K, public R
 	}
 };
 
-
 int main()
 {
 	C t(100);
